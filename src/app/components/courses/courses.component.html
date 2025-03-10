@@ -1,4 +1,24 @@
-<p>courses works!</p>
-@for (item of this.list; track $index) {
-    <div>{{item.description}} -{{item.teacherId}}- {{item.title}}</div>
-}
+<div>
+  @for (item of this.list; track item.id) {
+  <div class="course-details">
+    <div><strong>ID:</strong> {{ item.id }}</div>
+    <div><strong>Description:</strong> {{ item.description }}</div>
+    <div><strong>Teacher ID:</strong> {{ item.teacherId }}</div>
+    <div><strong>Title:</strong> {{ item.title }}</div>
+  </div>
+    <div class="edit-course">
+  <button class="edit-btn" (click)="edit(item.id)">Edit</button> 
+  <button class="edit-btn" (click)="delete(item.id)">Delete</button>
+  </div>
+
+    @if(currentIdForEdit==item.id) {
+        
+    <app-edit-course
+      [currentCourse]="item"
+      (newCourse)="save($event)"
+    ></app-edit-course>
+    }
+ 
+  
+  }
+</div>

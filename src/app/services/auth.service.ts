@@ -11,7 +11,6 @@ import { User } from '../models/user';
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
-
   async Login(login: Login){
     try {
       const res = await firstValueFrom(
@@ -30,12 +29,15 @@ export class AuthService {
 
   async AddUser(user: User){
     try {
-       await this.http.post<LoginRes>('http://localhost:3000/api/auth/register', {
+       const res=await firstValueFrom(this.http.post<LoginRes>('http://localhost:3000/api/auth/register', {
           name: user.name,
           email: user.email,
           password: user.password,
           role: user.role,
-        })
+        }));
+        if (res?.token) {
+          localStorage.setItem('token', res.token);
+        } 
     } catch (err: any) {
       throw 'error';
     }

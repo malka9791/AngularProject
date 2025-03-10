@@ -1,0 +1,26 @@
+<div class="edit-course-form">
+    <div appearance="outline" class="form-field">
+      <mat-label>Title</mat-label>
+      <input #title type="text" />
+    </div>
+  
+    <div appearance="outline" class="form-field">
+      <mat-label>Description</mat-label>
+      <input #description type="text"  />
+    </div>
+  
+    <div appearance="outline" class="form-field">
+      <mat-label>Teacher ID</mat-label>
+      <input #Teacherid type="number"  />
+    </div>
+  
+    <button
+      mat-raised-button
+      color="primary"
+      class="save-btn"
+      (click)="AddCourse(title.value, description.value, Teacherid.valueAsNumber)"
+    >
+      AddCourse
+    </button>
+  </div>
+  

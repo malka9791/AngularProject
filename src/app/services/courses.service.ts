@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from '../models/course';
+import { error } from 'console';
+import { editCourse } from '../models/editCourse';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +18,9 @@ export class CoursesService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get<Course[]>('http://localhost:3000/api/courses', {headers});
+    return this.http.get<Course[]>('http://localhost:3000/api/courses', {
+      headers,
+    });
   }
 
   getCourseById(id: number): Observable<Course> {
@@ -26,33 +30,34 @@ export class CoursesService {
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.get<Course>(`http://localhost:3000/api/courses/:${id}`, {headers});
+    return this.http.get<Course>(`http://localhost:3000/api/courses/${id}`, {
+      headers,
+    });
   }
 
-  addCourse(course: Course): Observable<any> {
+  addCourse(course: editCourse): Observable<any> {
     const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`,
     });
 
-    return this.http.post<Course>(
-      `http://localhost:3000/api/courses`,
-      course, {headers}
-    );
+    return this.http.post<Course>(`http://localhost:3000/api/courses`, course, {
+      headers,
+    });
   }
 
-  updateCourse(id:number, course: Course): Observable<any> {
+  updateCourse(id: number, course: Course):Observable<any> {
+    
     const token = localStorage.getItem('token');
 
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
-    });
-
-    return this.http.put<Course>(
-      `http://localhost:3000/api/courses/:${id}`,
-      course, {headers}
-    );
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${token}`)
+      .set('Content-Type', 'application/json');
+    console.log(headers);
+  
+   return this.http.put(`http://localhost:3000/api/courses/${id}`, course, { headers });
+  
   }
 
   deleteCourse(id: number): Observable<any> {
@@ -63,7 +68,8 @@ export class CoursesService {
     });
 
     return this.http.delete<Course>(
-      `http://localhost:3000/api/courses/:${id}`, {headers}
+      `http://localhost:3000/api/courses/${id}`,
+      { headers }
     );
   }
 }

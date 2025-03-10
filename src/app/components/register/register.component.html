@@ -1,4 +1,4 @@
-<p class="login-title">register works!</p>
+<p class="login-title">Sign In</p>
 <form [formGroup]="registerForm" class="login-form">
   <div class="form-container">
     <mat-form-field class="form-field">
@@ -61,15 +61,13 @@
         }}
       </mat-error>
     </mat-form-field>
-    <mat-form-field class="form-field">
+    <mat-form-field ppearance="outline">
       <mat-label>Enter your role</mat-label>
-      <input
-        matInput
-        placeholder="example: admin"
-        type="text"
-        formControlName="role"
-        id="role"
-      />
+      <mat-select formControlName="role" name="role" required>
+        @for(role of this.roles; track $index) {
+        <mat-option [value]="role">{{ role }} </mat-option>
+        }
+      </mat-select>
       <mat-error>
         {{
           this.registerForm.get("role")?.valid == false

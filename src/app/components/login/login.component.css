@@ -1,33 +1,43 @@
 /* כותרת הכניסה */
+  .wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fafafa; /* רקע בהיר */
+    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
+    width: 400px; /* רוחב הטופס */
+    /* max-width: 100%; */
+}
 .login-title {
     text-align: center;
     font-size: 2rem;
     color: #ff025f; /* צבע תואם לנושא קורסים */
-    margin-bottom: 100px; /* רווח למטה בין הכותרת לטופס */
+    margin-bottom: 80px; /* רווח למטה בין הכותרת לטופס */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
   }
   
   /* מיקום הטופס במרכז העמוד */
   .login-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
     height: 100%; /* גובה מלא של המסך */
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
   }
   
   /* קונטיינר של הטופס */
   .form-container {
-    background-color: #fafafa; /* רקע בהיר */
+    /* background-color: #fafafa; רקע בהיר */
     padding: 20px;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
-    width: 400px; /* רוחב הטופס */
-    max-width: 100%;
+    /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* הצללה עדינה */
+    /* width: 400px;  */
+     max-width: 100%;  
   }
   
   /* עיצוב שדות הטופס */
@@ -48,7 +58,7 @@
     font-size: 1rem;
     padding: 12px 0;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
     border: none;
   }
   
@@ -73,5 +83,23 @@
   /* עיצוב הודעות שגיאה */
   mat-error {
     color: #ff025f; /* צבע אדום לשגיאות */
+  }
+  .is_new{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    color: #ff025f;
+    justify-content: center;
+    
+  }
+  #button_is_new{
+    width: 30%;
+    color: white;
+    font-size: 1rem;
+    padding: 12px 0;
+    border-radius: 4px;
+    background-color: #e6004c;
+    border:none;
   }
   

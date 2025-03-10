@@ -1,0 +1,25 @@
+<div class="edit-course-form">
+  <div appearance="outline" class="form-field">
+    <mat-label>Title</mat-label>
+    <input #title type="text" [value]="currentCourse.title" />
+  </div>
+
+  <div appearance="outline" class="form-field">
+    <mat-label>Description</mat-label>
+    <input #description type="text" [value]="currentCourse.description" />
+  </div>
+
+  <div appearance="outline" class="form-field">
+    <mat-label>Teacher ID</mat-label>
+    <input #Teacherid type="number" [value]="currentCourse.teacherId" />
+  </div>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="save-btn"
+    (click)="saveData(title.value, description.value, Teacherid.valueAsNumber)"
+  >
+    Save
+  </button>
+</div>

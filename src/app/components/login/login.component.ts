@@ -13,6 +13,7 @@ import axios from 'axios';
 import { Login } from '../../models/login';
 import { AuthService } from '../../services/auth.service';
 import { log } from 'console';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   imports: [
@@ -27,7 +28,7 @@ import { log } from 'console';
 })
 export class LoginComponent implements OnInit {
   messege = '';
-  constructor(private AuthService: AuthService) {}
+  constructor(private AuthService: AuthService,private router:Router) {}
   async PostData() {
     try {
       await this.AuthService.Login({
@@ -35,6 +36,8 @@ export class LoginComponent implements OnInit {
         password: this.loginForm.get('password')?.value,
       });
       console.log('success');
+     
+        this.router.navigate(['/home']);   
     } catch (err: any) {
       this.messege = 'no such user';
     }
@@ -55,4 +58,8 @@ export class LoginComponent implements OnInit {
     this.hide = !this.hide;
     event.stopPropagation();
   }
+  ToSignIn() {
+    this.router.navigate(['/signin']);
+    }
+   
 }

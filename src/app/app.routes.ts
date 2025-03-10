@@ -3,10 +3,14 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { UsersComponent } from './components/users/users.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
 
 export const routes: Routes = [
-    {path:"",component:RegisterComponent},
+    {path:"",component:LoginComponent},
     {path:"login",component:LoginComponent},
+    {path:"signin",component:RegisterComponent},
     {path:"courses",component:CoursesComponent},
-    {path:"users",component:UsersComponent}
+    {path:"home",component:HomeComponent},
+    
 ];

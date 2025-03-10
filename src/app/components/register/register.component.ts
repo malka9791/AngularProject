@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { log } from 'console';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
   selector: 'app-register',
@@ -22,12 +23,14 @@ import { User } from '../../models/user';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    MatSelectModule
   ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })
 export class RegisterComponent {
   messege = '';
+  roles: string[] = ['teacher', 'student', 'admin'];
   constructor(private AuthService: AuthService) {}
   async register() {
     const data = {
@@ -39,7 +42,7 @@ export class RegisterComponent {
 
     try {
       await this.AuthService.AddUser(data);
-      console.log('succues!!1');
+      console.log('succues!!');
     } catch (error) {
       console.log(error);
       this.messege = 'failed, try again';
