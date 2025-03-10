@@ -10,12 +10,14 @@ import { editCourse } from '../models/editCourse';
 })
 export class CoursesService {
   constructor(private http: HttpClient) {}
-
+  token = typeof window !== 'undefined' && typeof localStorage !== 'undefined' 
+  ? localStorage.getItem('token') 
+  : null;
   getCourses(): Observable<Course[]> {
-    const token = localStorage.getItem('token');
 
+  
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${this.token}`,
     });
 
     return this.http.get<Course[]>('http://localhost:3000/api/courses', {
@@ -24,10 +26,10 @@ export class CoursesService {
   }
 
   getCourseById(id: number): Observable<Course> {
-    const token = localStorage.getItem('token');
+   
 
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${this.token}`,
     });
 
     return this.http.get<Course>(`http://localhost:3000/api/courses/${id}`, {
@@ -36,10 +38,9 @@ export class CoursesService {
   }
 
   addCourse(course: editCourse): Observable<any> {
-    const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${this.token}`,
     });
 
     return this.http.post<Course>(`http://localhost:3000/api/courses`, course, {
@@ -49,10 +50,9 @@ export class CoursesService {
 
   updateCourse(id: number, course: Course):Observable<any> {
     
-    const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders()
-      .set('Authorization', `Bearer ${token}`)
+      .set('Authorization', `Bearer ${this.token}`)
       .set('Content-Type', 'application/json');
     console.log(headers);
   
@@ -61,10 +61,9 @@ export class CoursesService {
   }
 
   deleteCourse(id: number): Observable<any> {
-    const token = localStorage.getItem('token');
 
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${this.token}`,
     });
 
     return this.http.delete<Course>(

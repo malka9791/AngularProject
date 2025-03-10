@@ -11,6 +11,7 @@ import { User } from '../models/user';
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
+  
   async Login(login: Login){
     try {
       const res = await firstValueFrom(
