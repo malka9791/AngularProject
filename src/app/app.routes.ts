@@ -15,7 +15,8 @@ export const routes: Routes = [
     {path:"courses",component:CoursesComponent},
     {path:'addCourse',component:AddCourseComponent},
     {path:"home",component:HomeComponent},
-    {path:"lesson/:courseId",component:LessonsComponent},
+    {path:"lesson/:courseId",component:LessonsComponent,  data: { renderMode: 'client' }  // ביטול Pre-rendering לעמוד זה
+},
     {path:"addlesson/:courseId",component:AddLessonComponent},
 
 ];

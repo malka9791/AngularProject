@@ -24,7 +24,7 @@ export class LessonsComponent {
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('courseId')); // ממיר את ה-ID למספר
-
+      if(!id) return;
       this.coursesService.getLessonsById(id).subscribe((lessons) => {
         this.list = lessons;
       });
