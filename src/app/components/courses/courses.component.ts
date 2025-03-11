@@ -72,10 +72,10 @@ export class CoursesComponent implements OnInit {
     return true;
   };
   showLessons = (id: number) => {
-    this.route.navigate([`lesson/${id}`]);
+    this.route.navigate([`lesson/`,id]);
   };
   addLesson(id: number): void {
-    this.route.navigate([`addlesson/${id}`]);
+    this.route.navigate([`addlesson/`,id]);
   }
   joinCourse(courseId: number): void {
     let id = this.courseService.getIdFromToken();

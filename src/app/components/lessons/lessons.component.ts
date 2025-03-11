@@ -3,7 +3,7 @@ import { CoursesService } from '../../services/courses.service';
 import { Lesson } from '../../models/lesson';
 import { EditLessonComponent } from '../edit-lesson/edit-lesson.component';
 import { ActivatedRoute } from '@angular/router';
-import { HeaderComponent } from "../header/header.component";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-lessons',
@@ -17,14 +17,14 @@ export class LessonsComponent {
     private route: ActivatedRoute
   ) {}
   list: Lesson[] = [];
-  messesge!:string;
+  messesge!: string;
   @Output() id: EventEmitter<number> = new EventEmitter<number>();
   currentIdForEdit!: number;
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       const id = Number(params.get('courseId')); // ממיר את ה-ID למספר
-      if(!id) return;
+      if (!id) return;
       this.coursesService.getLessonsById(id).subscribe((lessons) => {
         this.list = lessons;
       });
@@ -33,7 +33,7 @@ export class LessonsComponent {
 
   edit(courseId: number, id: number) {
     this.currentIdForEdit = id;
-    this.messesge='';
+    this.messesge = '';
     // this.route.navigate([`/courses/:${Course.id}`])
   }
   delete(courseId: number, id: number) {
@@ -68,9 +68,9 @@ export class LessonsComponent {
       },
       error: (err) => {
         if (err.status === 403) {
-          this.messesge='אין לך הרשאה לעדכן את הקורס.';
+          this.messesge = 'אין לך הרשאה לעדכן את הקורס.';
         } else {
-          this.messesge='שגיאה בעדכון הקורס:';
+          this.messesge = 'שגיאה בעדכון הקורס:';
         }
       },
     });
