@@ -21,7 +21,7 @@ export const routes: Routes = [
     path: 'lesson/:courseId',
     component: LessonsComponent,
     // canActivate: [lessonGuard],
-    data: { RenderMode: 'dynamic' },
+    // data: { RenderMode: 'dynamic' },
   }, // ביטול Pre-rendering לעמוד זה},
   { path: 'addlesson/:courseId', component: AddLessonComponent },
 ];
