@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { DateFormatPipe } from '../date-format.pipe';
+import { DateFormatPipe } from '../pipes/date-format.pipe';
 
 @Component({
   selector: 'app-header',
-  imports: [ RouterOutlet,MatIcon,RouterLink,DateFormatPipe],
+  imports: [ MatIcon,RouterLink,DateFormatPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })

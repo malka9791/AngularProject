@@ -136,12 +136,12 @@ export class CoursesService {
   //leave and join course
 
   addStudentToCourse(courseId: number, userId: number): Observable<any> {
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${this.token}`)
+      .set('Content-Type', 'application/json');
     return this.http
       .post(
-        `localhost:3000/api/courses/${courseId}/enroll`,
+        `http://localhost:3000/api/courses/${courseId}/enroll`,
         { userId },
         {
           headers,
@@ -157,12 +157,12 @@ export class CoursesService {
 
   removeStudentFromCourse(courseId: number, userId: number): Observable<any> {
     const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders({
-      Authorization: `Bearer ${this.token}`,
-    });
+    const headers = new HttpHeaders()
+      .set('Authorization', `Bearer ${this.token}`)
+      // .set('Content-Type', 'application/json');
     return this.http.delete(
       `http://localhost:3000/api/courses/${courseId}/unenroll`,
-      { headers, body: { userId } }
+      { headers,body:{ userId }}
     );
   }
 }

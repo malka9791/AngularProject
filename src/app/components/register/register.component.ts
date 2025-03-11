@@ -15,6 +15,7 @@ import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import {MatSelectModule} from '@angular/material/select';
 import { HeaderComponent } from "../header/header.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -33,7 +34,7 @@ import { HeaderComponent } from "../header/header.component";
 export class RegisterComponent {
   messege = '';
   roles: string[] = ['teacher', 'student', 'admin'];
-  constructor(private AuthService: AuthService) {}
+  constructor(private AuthService: AuthService,private route:Router) {}
   async register() {
     const data = {
       name: this.registerForm.get('name')?.value,
@@ -41,10 +42,10 @@ export class RegisterComponent {
       password: this.registerForm.get('password')?.value,
       role: this.registerForm.get('role')?.value,
     };
-
+    this.route.navigate(['/home']);
     try {
       await this.AuthService.AddUser(data);
-      console.log('succues!!');
+      
     } catch (error) {
       console.log(error);
       this.messege = 'failed, try again';

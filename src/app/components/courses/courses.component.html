@@ -20,9 +20,12 @@
    <button class="edit-btn" (click)="addLesson(item.id)">addLesson</button>
   }
   <button class="edit-btn" (click)="showLessons(item.id)">showLessons</button>
+
+  @if(!canChange())
+  {
   <button class="edit-btn" (click)="joinCourse(item.id)">JoinCourse</button>
   <button class="edit-btn" (click)="LeaveCourse(item.id)">LeaveCourse</button>
-
+  }
   </div>
   
     @if(currentIdForEdit==item.id) {
