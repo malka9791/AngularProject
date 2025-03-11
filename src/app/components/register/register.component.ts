@@ -14,6 +14,7 @@ import { log } from 'console';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import {MatSelectModule} from '@angular/material/select';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-register',
@@ -23,8 +24,9 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatSelectModule
-  ],
+    MatSelectModule,
+    HeaderComponent
+],
   templateUrl: './register.component.html',
   styleUrl: './register.component.css',
 })

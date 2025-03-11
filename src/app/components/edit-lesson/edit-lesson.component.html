@@ -1,0 +1,27 @@
+<!-- <app-header></app-header> -->
+<div class="edit-course-form">
+    <div appearance="outline" class="form-field">
+      <mat-label>Title</mat-label>
+      <input #title type="text" [value]="currentLesson.title" />
+    </div>
+  
+    <div appearance="outline" class="form-field">
+      <mat-label>Content</mat-label>
+      <input #content type="text" [value]="currentLesson.content" />
+    </div>
+  
+    <div appearance="outline" class="form-field">
+      <mat-label>Course ID</mat-label>
+      <input #courseId type="number" [value]="currentLesson.courseId" />
+    </div>
+  
+    <button
+      mat-raised-button
+      color="primary"
+      class="save-btn"
+      (click)="saveData(title.value, content.value, courseId.valueAsNumber)"
+    >
+      Save
+    </button>
+  </div>
+  

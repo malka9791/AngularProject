@@ -1,31 +1,11 @@
-<mat-tab-group>
-    <mat-tab>
-      <ng-template mat-tab-label class="label">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-        להצגת הקורסים
-      </ng-template>
-      <app-courses></app-courses>
-    </mat-tab>
+<div class="container">
+  <app-header></app-header>
   
-    <mat-tab>
-      <ng-template mat-tab-label class="label">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-       להוספת קורס-למורה בלבד
-      </ng-template>
-      <div id="space"></div>
-    <app-add-course></app-add-course>
-    </mat-tab>
-  
-    <mat-tab>
-      <ng-template mat-tab-label class="label">
-        <mat-icon class="example-tab-icon">thumb_up</mat-icon>
-        Third
-      </ng-template>
-  
-      Content 3
-    </mat-tab>
-  </mat-tab-group>
-<!-- <nav>
- 
- </nav> -->
-   <router-outlet/>
+
+  <div class="welcome-container">
+    <h1>Welcome to Our Learning Platform! 🎉</h1>
+    <p>Explore courses, learn new skills, and grow with us.</p>
+    <!-- <button mat-raised-button color="primary" routerLink="/courses">Browse Courses</button> -->
+  </div>
+</div>
+

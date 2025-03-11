@@ -1,4 +1,9 @@
-<div>
+<app-header></app-header>
+<div class="container">
+  @if(this.list.length==0)
+  {
+      <h1>there isn't lessons in this course😑</h1>
+  }
   @for (item of this.list; track item.id) {
   <div class="course-details">
     <div><strong>ID:</strong> {{ item.id }}</div>
@@ -6,11 +11,20 @@
     <div><strong>Teacher ID:</strong> {{ item.teacherId }}</div>
     <div><strong>Title:</strong> {{ item.title }}</div>
   </div>
-    <div class="edit-course">
+  <div class="edit-course">
+  @if(canChange())
+  {
+   
   <button class="edit-btn" (click)="edit(item.id)">Edit</button> 
-  <button class="edit-btn" (click)="delete(item.id)">Delete</button>
-  </div>
+  <button class="edit-btn" (click)="Delete(item.id)">Delete</button> 
+   <button class="edit-btn" (click)="addLesson(item.id)">addLesson</button>
+  }
+  <button class="edit-btn" (click)="showLessons(item.id)">showLessons</button>
+  <button class="edit-btn" (click)="joinCourse(item.id)">JoinCourse</button>
+  <button class="edit-btn" (click)="LeaveCourse(item.id)">LeaveCourse</button>
 
+  </div>
+  
     @if(currentIdForEdit==item.id) {
         
     <app-edit-course
@@ -18,7 +32,10 @@
       (newCourse)="save($event)"
     ></app-edit-course>
     }
+ @if(currentIdForEdit==item.id)
+ {
+   <div>{{messege}}</div>
+ }
  
-  
   }
 </div>

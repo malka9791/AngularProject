@@ -1,8 +1,48 @@
-#space{
-    margin-top: 100px;
-}
-.label{
-    color:#c7003f;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* מבטיח שהגוף לא יגרום לגלילה */
 
-}
+  
+  /* עיצוב הרכיב Welcome */
+  .welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh; /* גובה מסך מלא */
+    width: 100%; /* רוחב מסך מלא */
+    text-align: center;
+    background: linear-gradient(135deg, #ff025f, #ff6a00);
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  
+  /* עיצוב הכותרת */
+  h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+  
+  /* עיצוב הטקסט */
+  p {
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  
+  /* עיצוב הכפתור */
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+  
+  /* אנימציה של fadeIn */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

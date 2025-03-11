@@ -4,12 +4,18 @@ import { RegisterComponent } from './components/register/register.component';
 import { CoursesComponent } from './components/courses/courses.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
+import { LessonsComponent } from './components/lessons/lessons.component';
+import { AddLessonComponent } from './components/add-lesson/add-lesson.component';
+import { AddCourseComponent } from './components/add-course/add-course.component';
 
 export const routes: Routes = [
     {path:"",component:LoginComponent},
     {path:"login",component:LoginComponent},
-    {path:"signin",component:RegisterComponent},
+    {path:"signup",component:RegisterComponent},
     {path:"courses",component:CoursesComponent},
+    {path:'addCourse',component:AddCourseComponent},
     {path:"home",component:HomeComponent},
-    
+    {path:"lesson/:courseId",component:LessonsComponent},
+    {path:"addlesson/:courseId",component:AddLessonComponent},
+
 ];

@@ -3,10 +3,11 @@ import { MatLabel } from '@angular/material/form-field';
 import { CoursesService } from '../../services/courses.service';
 import { Course } from '../../models/course';
 import { editCourse } from '../../models/editCourse';
+import { HeaderComponent } from "../header/header.component";
 
 @Component({
   selector: 'app-add-course',
-  imports: [MatLabel],
+  imports: [MatLabel, HeaderComponent],
   templateUrl: './add-course.component.html',
   styleUrl: './add-course.component.css',
 })
@@ -14,12 +15,12 @@ export class AddCourseComponent implements OnInit {
   constructor(private courseService: CoursesService) {}
   ngOnInit(): void {}
 
-  AddCourse(title: string, description: string, Teacherid: number) {
-    const c1 = new editCourse(title, description, Teacherid);
+  AddCourse(title: string, description: string) {
+    const c1 = new editCourse(title, description);
     this.courseService.addCourse(c1).subscribe({
       next: (response) => {
         console.log(c1);
-        
+
         console.log('Success:', response);
       },
       error: (err) => {

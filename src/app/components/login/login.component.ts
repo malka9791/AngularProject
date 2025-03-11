@@ -14,6 +14,7 @@ import { Login } from '../../models/login';
 import { AuthService } from '../../services/auth.service';
 import { log } from 'console';
 import { Router } from '@angular/router';
+import { HeaderComponent } from "../header/header.component";
 @Component({
   selector: 'app-login',
   imports: [
@@ -22,7 +23,8 @@ import { Router } from '@angular/router';
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-  ],
+    HeaderComponent
+],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -58,8 +60,8 @@ export class LoginComponent implements OnInit {
     this.hide = !this.hide;
     event.stopPropagation();
   }
-  ToSignIn() {
-    this.router.navigate(['/signin']);
+  ToSignUp() {
+    this.router.navigate(['/signup']);
     }
    
 }
