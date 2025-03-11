@@ -2,6 +2,8 @@ header {
   background: linear-gradient(135deg, #ff025f, #ff6a00);
   padding: 15px 0;
   text-align: center;
+  /* position: fixed;
+  wid */
 }
 
 nav ul {

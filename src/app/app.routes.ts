@@ -8,6 +8,7 @@ import { LessonsComponent } from './components/lessons/lessons.component';
 import { AddLessonComponent } from './components/add-lesson/add-lesson.component';
 import { AddCourseComponent } from './components/add-course/add-course.component';
 import { lessonGuard } from './guard/lesson-guard.guard';
+import { RenderMode } from '@angular/ssr';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -19,7 +20,8 @@ export const routes: Routes = [
   {
     path: 'lesson/:courseId',
     component: LessonsComponent,
-    canActivate: [lessonGuard],
+    // canActivate: [lessonGuard],
+    data: { RenderMode: 'dynamic' },
   }, // ביטול Pre-rendering לעמוד זה},
   { path: 'addlesson/:courseId', component: AddLessonComponent },
 ];
