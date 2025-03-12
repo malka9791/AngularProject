@@ -5,6 +5,6 @@ export const addCourseGuard: CanActivateFn = (route, state) => {
     typeof window !== 'undefined' && typeof sessionStorage !== 'undefined'
       ? sessionStorage.getItem('role')
       : null;
-  if (role == 'student') return false;
-  return true;
+  if (role == 'teacher' || role == 'admin') return true;
+  return false;
 };
