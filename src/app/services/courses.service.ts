@@ -156,14 +156,10 @@ export class CoursesService {
   }
 
   removeStudentFromCourse(courseId: number, userId: number): Observable<any> {
-    // const headers = new HttpHeaders().set(
-    //   'Authorization',
-    //   `Bearer ${this.token}`
-    // );
-    // .set('Content-Type', 'application/json');
-    return this.http.request<any>('DELETE', `http://localhost:3000/api/courses/${courseId}/unenroll`, {
-      body: { userId: userId },
-    });
+    const headers = new HttpHeaders()
+    .set('Authorization', `Bearer ${this.token}`)
+    .set('Content-Type', 'application/json');
+    return this.http.delete(`http://localhost:3000/api/courses/${courseId}/unenroll`, { headers, body: { userId }, });
   }
   
 }

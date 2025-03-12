@@ -15,16 +15,16 @@
   @if(canChange())
   {
    
-  <button class="edit-btn" (click)="edit(item.id)">Edit</button> 
-  <button class="edit-btn" (click)="Delete(item.id)">Delete</button> 
-   <button class="edit-btn" (click)="addLesson(item.id)">addLesson</button>
+  <button class="edit-btn" appHoverShadow (click)="edit(item.id)">Edit</button> 
+  <button class="edit-btn" appHoverShadow (click)="Delete(item.id)">Delete</button> 
+   <button class="edit-btn" appHoverShadow  (click)="addLesson(item.id)">addLesson</button>
   }
-  <button class="edit-btn" (click)="showLessons(item.id)">showLessons</button>
+  <button class="edit-btn" appHoverShadow (click)="showLessons(item.id)">showLessons</button>
 
   @if(!canChange())
   {
-  <button class="edit-btn" (click)="joinCourse(item.id)">JoinCourse</button>
-  <button class="edit-btn" (click)="LeaveCourse(item.id)">LeaveCourse</button>
+  <button class="edit-btn" appHoverShadow (click)="joinCourse(item.id)">JoinCourse</button>
+  <button class="edit-btn" appHoverShadow (click)="LeaveCourse(item.id)">LeaveCourse</button>
   }
   </div>
   

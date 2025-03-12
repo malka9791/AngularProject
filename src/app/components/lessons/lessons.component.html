@@ -11,10 +11,10 @@
   </div>
   <div class="edit-lesson">
     @if(canChange()) {
-    <button class="edit-btn" (click)="edit(item.courseId, item.id)">
+    <button class="edit-btn" appHoverShadow (click)="edit(item.courseId, item.id)">
       Edit
     </button>
-    <button class="edit-btn" (click)="delete(item.courseId, item.id)">
+    <button class="edit-btn" appHoverShadow (click)="delete(item.courseId, item.id)">
       Delete
     </button>
     }
