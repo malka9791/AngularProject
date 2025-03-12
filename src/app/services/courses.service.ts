@@ -125,7 +125,7 @@ export class CoursesService {
         const payloadJson = atob(payloadBase64); // המרת Base64 ל- JSON
         const payload = JSON.parse(payloadJson); // המרת JSON לאובייקט
         console.log(payload);
-        
+
         return payload.userId || null; // החזרת ה-role אם קיים
       }
     } catch (error) {
@@ -156,13 +156,14 @@ export class CoursesService {
   }
 
   removeStudentFromCourse(courseId: number, userId: number): Observable<any> {
-    const token = sessionStorage.getItem('token');
-    const headers = new HttpHeaders()
-      .set('Authorization', `Bearer ${this.token}`)
-      // .set('Content-Type', 'application/json');
-    return this.http.delete(
-      `http://localhost:3000/api/courses/${courseId}/unenroll`,
-      { headers,body:{ userId }}
-    );
+    // const headers = new HttpHeaders().set(
+    //   'Authorization',
+    //   `Bearer ${this.token}`
+    // );
+    // .set('Content-Type', 'application/json');
+    return this.http.request<any>('DELETE', `http://localhost:3000/api/courses/${courseId}/unenroll`, {
+      body: { userId: userId },
+    });
   }
+  
 }

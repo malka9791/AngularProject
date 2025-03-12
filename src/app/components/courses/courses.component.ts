@@ -97,6 +97,8 @@ export class CoursesComponent implements OnInit {
 
   LeaveCourse(courseId: number): void {
     let id = this.courseService.getIdFromToken();
+    console.log(id);
+    
     this.courseService.removeStudentFromCourse(courseId, id).subscribe(
       (response) => {
         console.log('You left successfully:', response);

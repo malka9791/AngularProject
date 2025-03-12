@@ -78,6 +78,7 @@
   outline: none;
 }
 .container{
-  overflow: scroll;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
