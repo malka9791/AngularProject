@@ -20,9 +20,9 @@ export class AuthService {
         })
       );
       if (res?.token) {
-        localStorage.setItem('token', res.token);
+        sessionStorage.setItem('token', res.token);
         const role = this.getRoleFromToken(res.token);
-        localStorage.setItem('role', role);
+        sessionStorage.setItem('role', role);
       }
     } catch (err: any) {
       throw 'error';
@@ -40,8 +40,8 @@ export class AuthService {
         })
       );
       if (res?.token) {
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('role', user.role);
+        sessionStorage.setItem('token', res.token);
+        sessionStorage.setItem('role', user.role);
       }
     } catch (err: any) {
       throw 'error';

@@ -53,8 +53,8 @@ export class LessonsComponent {
   }
   canChange = () => {
     let role =
-      typeof window !== 'undefined' && typeof localStorage !== 'undefined'
-        ? localStorage.getItem('role')
+      typeof window !== 'undefined' && typeof sessionStorage !== 'undefined'
+        ? sessionStorage.getItem('role')
         : null;
     if (role == 'student') return false;
     return true;
@@ -63,8 +63,10 @@ export class LessonsComponent {
     this.coursesService.updateLesson(e.courseId, e.id, e).subscribe({
       next: (response) => {
         console.log('Success:', response);
-        this.list = this.list.filter((lesson) => lesson.id !== e.courseId);
         this.currentIdForEdit = -1;
+        this.coursesService.getLessonsById(e.courseId).subscribe((lessons) => {
+          this.list = lessons;
+        });
       },
       error: (err) => {
         if (err.status === 403) {

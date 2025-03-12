@@ -13,8 +13,8 @@ import { addLesson } from '../models/addLesson';
 export class CoursesService {
   constructor(private http: HttpClient) {}
   token =
-    typeof window !== 'undefined' && typeof localStorage !== 'undefined'
-      ? localStorage.getItem('token')
+    typeof window !== 'undefined' && typeof sessionStorage !== 'undefined'
+      ? sessionStorage.getItem('token')
       : '';
   getCourses(): Observable<Course[]> {
     const headers = new HttpHeaders({
