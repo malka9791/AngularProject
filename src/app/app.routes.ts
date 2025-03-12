@@ -11,7 +11,7 @@ import { RenderMode } from '@angular/ssr';
 import { addCourseGuard } from './guard/add-course.guard';
 
 export const routes: Routes = [
-  { path: '', component: LoginComponent },
+  { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
   { path: 'courses', component: CoursesComponent },
