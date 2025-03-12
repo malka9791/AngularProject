@@ -1,6 +1,4 @@
-
-  
-  /* .course-details div {
+/* .course-details div {
     margin-bottom: 8px;
     font-size: 16px;
   }
@@ -25,9 +23,9 @@
   
   .edit-course {
     /* margin:  15px 3px ; */
-    /* border-radius: 8px; */
-  /* } */ 
-  /* עיצוב אזור פרטי הקורס */
+/* border-radius: 8px; */
+/* } */
+/* עיצוב אזור פרטי הקורס */
 .course-details {
   display: flex;
   flex-direction: column;
@@ -72,14 +70,12 @@
 
 .edit-btn:hover {
   background-color: #e4004f;
-  
 }
 
 .edit-btn:focus {
   outline: none;
 }
-.container{
-  overflow-x: scroll;
-  overflow-y: hidden;
+.container {
+  /* overflow-x: scroll; */
+  overflow: hidden;
 }
-
